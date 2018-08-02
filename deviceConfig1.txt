@@ -1,0 +1,10 @@
+platformName=Android
+platformVersion=6.0.1
+appPackage=cn.douyuu.miqu
+deviceName=55e1b070
+appActivity=com.egoodfate.interest.ui.LoadingActivity
+unicodeKeyboard=true
+noReset=true
+resetKeyboard=true
+newCommandTimeout=150
+remoteHost=http://127.0.0.1:4723/wd/hub
