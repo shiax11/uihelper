@@ -45,6 +45,7 @@ class ConnectionType(Enum):
 class UiHelper:
     remoteHost = "http://127.0.0.1:4723/wd/hub"
     def __init__(self, configPath):
+        # type: (object) -> object
         self.desired_caps = {}
         self._driver = None
         file_object = open(configPath)
@@ -517,3 +518,6 @@ class UiHelper:
     """
     def enableAllConnection(self):
         self._driver.set_network_connection(ConnectionType.ALL_NETWORK_ON)
+
+    def waitForElementBySystem(self, PhoneNumber, param):
+        pass
