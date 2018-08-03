@@ -95,7 +95,7 @@ class LanDing(unittest.TestCase):
                 uiHeloer.clickElement(PhoneNumber)
             except:
                 pass
-            uiHeloer.findElement(PhoneNumber).set_value("16666666661")
+            uiHeloer.findElement(PhoneNumber).set_value("16666666664")
             sleep(3)
             uiHeloer.findElement(messagecode).set_value("8888")
             sleep(3)
@@ -141,8 +141,55 @@ class LanDing(unittest.TestCase):
         unittest.TextTestRunner(verbosity=2).run(suite)
 
     def test03_login(self):
-        #-登录界面-#
-        #--#
+        #-登录界面按键-#
+        denglu = "cn.douyuu.miqu:id/loginGuide_login_btn"
+        #-QQ-#
+        qq = "cn.douyuu.miqu:id/loginGuide_shortcut_QQ_iv"
+        #-微信-#
+        WeChat = "cn.douyuu.miqu:id/loginGuide_shortcut_WX_iv"
+        #-ID输入框-#
+        ID = "cn.douyuu.miqu:id/login_edt_phone"
+        #-密码输入框-#
+        password = "cn.douyuu.miqu:id/login_edt_pwd"
+        #-忘记密码-#
+        passwordS = "cn.douyuu.miqu:id/login_tv_find_password"
+        #-登录按键-#
+        login = "cn.douyuu.miqu:id/login_tv_login"
+        # -密码-#
+        protoco2 = "123456"
         uiHeloer = UiHelper("deviceConfig1.txt")
         uiHeloer.initDriver()
         sleep(10)
+        try:
+            login1 = None
+            try:
+                login1 = uiHeloer.findElement(denglu)
+            except:
+                print "没有找到登录按键"
+            login1.click()
+            sleep(3)
+            try:
+                uiHeloer.waitForElementBySystem(ID, 10)
+            except:
+                print "没有到登录界面"
+                pass
+            uiHeloer.findElement(ID).set_value("16666666664")
+            sleep(1)
+            uiHeloer.findElement(password).set_value(protoco2)
+            sleep(1)
+            uiHeloer.clickElement(login)
+            try:
+                uiHeloer.waitForElementBySystem("cn.douyuu.miqu:id/tab_hall_top", 10)
+            except:
+                uiHeloer.saveScreenshot("登录失败.png")
+                print "登录失败"
+                pass
+            sleep(3)
+            uiHeloer.saveScreenshot("登录成功.png")
+            print "登录成功"
+        finally:
+            if (uiHeloer != None):
+                uiHeloer.quitDriver()
+    if __name__ == '__main__':
+        suite = unittest.TestLoader().loadTestsFromTestCase(test03_login)
+        unittest.TextTestRunner(verbosity=2).run(suite)
