@@ -7,4 +7,4 @@ unicodeKeyboard=true
 noReset=true
 resetKeyboard=true
 newCommandTimeout=150
-remoteHost=http:///wd/hub127.0.0.1:4723
+remoteHost=http://127.0.0.1:4723/wd/hub
