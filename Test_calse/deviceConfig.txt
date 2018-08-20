@@ -1,8 +1,9 @@
 platformName=Android
-platformVersion=6.0.1
+platformVersion=7.1.1
 appPackage=cn.douyuu.miqu
-deviceName=55e1b070
+deviceName=58572e88
 appActivity=com.egoodfate.interest.ui.LoadingActivity
+automationName=uiautomator2
 unicodeKeyboard=true
 resetKeyboard=true
 newCommandTimeout=150
